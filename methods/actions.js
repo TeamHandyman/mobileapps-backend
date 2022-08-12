@@ -47,6 +47,19 @@ var functions = {
             }
         })
     },
+    checkEmailAvailability: function(req,res){
+        User.findOne({
+            email: req.body.email
+        }, function(err,user){
+            if(err) throw err
+            if(!user){
+                res.status(403).send({success:true})
+            }
+            else{
+                res.status(403).send({success:false})
+            }
+        })
+    },
     getinfo: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
             var token = req.headers.authorization.split(' ')[1]

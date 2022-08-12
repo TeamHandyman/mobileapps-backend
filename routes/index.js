@@ -14,6 +14,8 @@ router.get('/dashboard', (req,res) =>{
 router.post('/addCustomer', actions.addNewCustomer)
 //login
 router.post('/loginCustomer', actions.loginCustomer)
+//check email availability
+router.post('/checkEmailAvailability', actions.checkEmailAvailability)
 //get
 router.get('/getinfo', actions.getinfo)
 
