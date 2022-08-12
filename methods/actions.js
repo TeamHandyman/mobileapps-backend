@@ -60,6 +60,19 @@ var functions = {
             }
         })
     },
+    checkPhoneAvailability: function(req,res){
+        User.findOne({
+            phone: req.body.phone
+        }, function(err,user){
+            if(err) throw err
+            if(!user){
+                res.json({success:true})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+    },
     getinfo: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
             var token = req.headers.authorization.split(' ')[1]

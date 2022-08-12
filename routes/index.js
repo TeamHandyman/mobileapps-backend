@@ -16,6 +16,8 @@ router.post('/addCustomer', actions.addNewCustomer)
 router.post('/loginCustomer', actions.loginCustomer)
 //check email availability
 router.post('/checkEmailAvailability', actions.checkEmailAvailability)
+//check phone availability
+router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
 //get
 router.get('/getinfo', actions.getinfo)
 
