@@ -53,10 +53,10 @@ var functions = {
         }, function(err,user){
             if(err) throw err
             if(!user){
-                res.status(403).send({success:true})
+                res.json({success:true})
             }
             else{
-                res.status(403).send({success:false})
+                res.json({success:true})
             }
         })
     },
