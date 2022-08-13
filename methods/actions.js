@@ -1,6 +1,10 @@
 var User = require('../models/user')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
+const multer = require('multer')
+const proPicModel = require('../models/proPic')
+
+
 
 var functions = {
 
@@ -82,7 +86,25 @@ var functions = {
         else{
             return res.json({success:false, msg:'No headers'})
         }
-    }
+    },
+    // upload: function(req,res){
+    //     upload.single('email')(req,res,function (err){
+    //         if(err){
+    //             console.log(err)
+    //         }
+    //         else{
+    //             const newProPic = new proPicModel({
+    //                 email: req.body.email,
+    //                 image:{
+    //                     data: req.file.filename,
+    //                     contentType: 'image/png'
+    //                 }
+    //             })
+    //             newProPic.save().then(()=>res.send('successfully uploaded')).catch(err=>console.log(err))
+    //         }
+    //     })
+        
+    // }
 
 } 
 

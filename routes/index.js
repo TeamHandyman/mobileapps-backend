@@ -18,6 +18,8 @@ router.post('/loginCustomer', actions.loginCustomer)
 router.post('/checkEmailAvailability', actions.checkEmailAvailability)
 //check phone availability
 router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
+//upload pro pic
+// router.post('/uploadProPic', actions.upload)
 //get
 router.get('/getinfo', actions.getinfo)
 
