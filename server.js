@@ -24,19 +24,16 @@ app.use(passport.initialize())
 require('./config/passport')(passport)
 
 //Propic storage
-var propic;
-
 const Storage = multer.diskStorage({
     destination:'Propics',
     filename:(req,file,cb)=>{
-        propic = file;
         cb(null,file.originalname);
     },
 });
 
 const upload = multer({
     storage:Storage
-}).file
+}).single('testImage')
 
 app.post('/upload',(req,res)=>{
     upload(req,res,(err)=>{
