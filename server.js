@@ -43,7 +43,7 @@ app.post('/upload',(req,res)=>{
             const newImage = new ImageModel({
                 email: req.body.email,
                 image:{
-                    data: req.body.filename,
+                    data: req.file.filename,
                     contentType:'image/png'
                 }
             })
