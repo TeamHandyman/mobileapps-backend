@@ -27,7 +27,7 @@ require('./config/passport')(passport)
 const Storage = multer.diskStorage({
     destination:'Propics',
     filename:(req,file,cb)=>{
-        // print(file.originalname);
+        console.log(file.originalname);
         cb(null,file.originalname);
     },
 });
