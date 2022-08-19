@@ -83,7 +83,7 @@ var functions = {
         }, function(err,propic){
             if(err) throw err
             if(!propic){
-                res.json({success:true},{propic: propic.image})
+                res.json({success:true,msg:propic.image})
             }
             else{
                 res.json({success:false})
