@@ -77,6 +77,19 @@ var functions = {
             }
         })
     },
+    getPropic: function(req,res){
+        proPicModel.findOne({
+            email: req.body.email
+        }, function(err,propic){
+            if(err) throw err
+            if(!propic){
+                res.json({success:true},{propic: propic.image})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+    },
     getinfo: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
             var token = req.headers.authorization.split(' ')[1]

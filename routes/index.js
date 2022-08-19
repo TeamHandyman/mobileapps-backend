@@ -22,6 +22,7 @@ router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
 // router.post('/uploadProPic', actions.upload)
 //get
 router.get('/getinfo', actions.getinfo)
+router.get('/getPropic', actions.getPropic)
 
 
 
