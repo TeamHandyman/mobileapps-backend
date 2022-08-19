@@ -79,8 +79,8 @@ var functions = {
     },
     getPropic: async function(req,res){
         try{
-            const propic = proPicModel.find({
-                email: req.params[1]
+            const propic = User.findOne({
+                email: "abc@gmail.com"
             })
             // console.log(propic+"asdsda")
             res.json(propic)
