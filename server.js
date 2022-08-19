@@ -45,7 +45,7 @@ app.post('/upload',(req,res)=>{
             let propic = new Buffer(base64, 'base64');
             const newImage = new ImageModel({
                 email: req.body.email,
-                image: encoded
+                image: propic
             })
             newImage.save().then(()=>res.send('successfully uploaded')).catch(err=>console.log(err))
         }
