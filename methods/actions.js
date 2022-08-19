@@ -82,6 +82,7 @@ var functions = {
             const propic = proPicModel.findOne({
                 email: "abc@gmail.com"
             })
+            console.log(propic)
             res.json(propic)
         }catch(err){
             res.send('Error'+err)
