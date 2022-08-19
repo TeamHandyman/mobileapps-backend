@@ -80,7 +80,7 @@ var functions = {
     getPropic: async function(req,res){
         try{
             const propic = proPicModel.findOne({
-                email: req.params[1]
+                email: "abc@gmail.com"
             })
             res.json(propic)
         }catch(err){
