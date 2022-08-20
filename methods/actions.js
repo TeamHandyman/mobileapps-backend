@@ -101,8 +101,8 @@ var functions = {
         }
     },
     uploadProPic: function(req,res){
-        cloudinary.v2.uploader.upload(req.body.path,
-                { public_id: req.body.name }, 
+        cloudinary.v2.uploader.upload('E:/UCSC/3rd Year/1st Sem/SCS 3214 - Group Project II/Handymanmobile-backend/Propics/download.png',
+                { public_id: 'asd' }, 
                 function(error, result) {console.log(result); });
         
     }
