@@ -50,14 +50,14 @@ app.post('/upload',(req,res)=>{
             cloudinary.v2.uploader.upload(req.body.path,
                 { public_id: req.body.name }, 
                 function(error, result) {console.log(result); });
-            // const encoded = req.body.encoded;
-            // let base64 = encoded.toString('base64');
-            // let propic = new Buffer(base64, 'base64');
-            // const newImage = new ImageModel({
-            //     email: req.body.email,
-            //     image: propic
-            // })
-            // newImage.save().then(()=>res.send('successfully uploaded')).catch(err=>console.log(err))
+            const encoded = req.body.encoded;
+            let base64 = encoded.toString('base64');
+            let propic = new Buffer(base64, 'base64');
+            const newImage = new ImageModel({
+                email: req.body.email,
+                image: propic
+            })
+            newImage.save().then(()=>res.send('successfully uploaded')).catch(err=>console.log(err))
         }
     })
 })
