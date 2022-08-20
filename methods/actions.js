@@ -2,15 +2,15 @@ var User = require('../models/user')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
 const multer = require('multer')
-const proPicModel = require('../models/proPic')
-const cloudinary = require('cloudinary')
+// const proPicModel = require('../models/proPic')
+// const cloudinary = require('cloudinary')
 
 
 
 var functions = {
 
     addNewCustomer: function (req,res){
-        if((!req.body.email) || (!req.body.password) || (!req.body.phone) || (!req.body.fName)){
+        if((!req.body.email) || (!req.body.password) || (!req.body.phone) || (!req.body.fName) || (!req.body.gender) || (!req.body.district)){
             res.json({success: false, msg: 'Please fill all the required fields'})
         }
         else{
@@ -19,7 +19,9 @@ var functions = {
                 lName: req.body.lName,
                 phone: req.body.phone,
                 email: req.body.email,
-                password: req.body.password
+                password: req.body.password,
+                gender: req.body.gender,
+                district: req.body.district
             });
             newCustomer.save(function(err, newCustomer){
                 if(err){
@@ -78,18 +80,18 @@ var functions = {
             }
         })
     },
-    getPropic: async function(req,res){
-        try{
-            const propic = await proPicModel.findOne({
-                email: "abcd@gmail.com"
-            })
-            // console.log(propic+"asdsda")
-            res.json(propic)
-        }catch(err){
-            res.send('Error'+err)
-        }
+    // getPropic: async function(req,res){
+    //     try{
+    //         const propic = await proPicModel.findOne({
+    //             email: "abcd@gmail.com"
+    //         })
+    //         // console.log(propic+"asdsda")
+    //         res.json(propic)
+    //     }catch(err){
+    //         res.send('Error'+err)
+    //     }
         
-    },
+    // },
     getinfo: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
             var token = req.headers.authorization.split(' ')[1]
@@ -100,12 +102,12 @@ var functions = {
             return res.json({success:false, msg:'No headers'})
         }
     },
-    uploadProPic: function(req,res){
-        cloudinary.v2.uploader.upload(req.body.path,
-                { public_id: 'asd' }, 
-                function(error, result) {console.log(result); });
+    // uploadProPic: function(req,res){
+    //     cloudinary.v2.uploader.upload(req.body.path,
+    //             { public_id: 'asd' }, 
+    //             function(error, result) {console.log(result); });
         
-    }
+    // }
 
 } 
 

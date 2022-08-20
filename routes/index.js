@@ -19,10 +19,10 @@ router.post('/checkEmailAvailability', actions.checkEmailAvailability)
 //check phone availability
 router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
 //upload pro pic
-router.post('/uploadProPic', actions.uploadProPic)
+// router.post('/uploadProPic', actions.uploadProPic)
 //get
 router.get('/getinfo', actions.getinfo)
-router.get('/getPropic', actions.getPropic)
+// router.get('/getPropic', actions.getPropic)
 
 
 

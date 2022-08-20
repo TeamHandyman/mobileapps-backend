@@ -7,15 +7,15 @@ const bodyParser = require('body-parser')
 const routes = require('./routes/index')
 const multer = require('multer')
 const ImageModel = require('./models/proPic')
-const cloudinary = require('cloudinary');
+// const cloudinary = require('cloudinary');
 
 connectDB()
 
-cloudinary.config({
-    cloud_name: 'projecthandyman',
-    api_key: '461133995855746',
-    api_secret: '-QpKX775LFGsnxH4csUfswOTQl4',
-})
+// cloudinary.config({
+//     cloud_name: 'projecthandyman',
+//     api_key: '461133995855746',
+//     api_secret: '-QpKX775LFGsnxH4csUfswOTQl4',
+// })
 
 const app = express()
 
@@ -42,25 +42,25 @@ require('./config/passport')(passport)
 //     storage:Storage
 // }).single('testImage')
 
-app.post('/upload',(req,res)=>{
-    upload(req,res,(err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            cloudinary.v2.uploader.upload('E:/UCSC/3rd Year/1st Sem/SCS 3214 - Group Project II/Handymanmobile-backend/Propics/download.png',
-                { public_id: 'asd' }, 
-                function(error, result) {console.log(result); });
-            const encoded = req.body.encoded;
-            let base64 = encoded.toString('base64');
-            let propic = new Buffer(base64, 'base64');
-            const newImage = new ImageModel({
-                email: req.body.email,
-                image: propic
-            })
-            newImage.save().then(()=>res.send('successfully uploaded')).catch(err=>console.log(err))
-        }
-    })
-})
+// app.post('/upload',(req,res)=>{
+//     upload(req,res,(err)=>{
+//         if(err){
+//             console.log(err)
+//         }else{
+//             cloudinary.v2.uploader.upload('E:/UCSC/3rd Year/1st Sem/SCS 3214 - Group Project II/Handymanmobile-backend/Propics/download.png',
+//                 { public_id: 'asd' }, 
+//                 function(error, result) {console.log(result); });
+//             const encoded = req.body.encoded;
+//             let base64 = encoded.toString('base64');
+//             let propic = new Buffer(base64, 'base64');
+//             const newImage = new ImageModel({
+//                 email: req.body.email,
+//                 image: propic
+//             })
+//             newImage.save().then(()=>res.send('successfully uploaded')).catch(err=>console.log(err))
+//         }
+//     })
+// })
 
 
 const PORT = process.env.PORT || 3000

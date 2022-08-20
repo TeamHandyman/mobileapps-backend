@@ -22,6 +22,14 @@ var userCustomerSchema = new Schema({
     password: {
         type: String,
         require: true
+    },
+    gender: {
+        type: String,
+        require: true
+    },
+    district: {
+        type: String,
+        require: true
     }
 })
 
