@@ -99,24 +99,12 @@ var functions = {
             return res.json({success:false, msg:'No headers'})
         }
     },
-    // upload: function(req,res){
-    //     upload.single('email')(req,res,function (err){
-    //         if(err){
-    //             console.log(err)
-    //         }
-    //         else{
-    //             const newProPic = new proPicModel({
-    //                 email: req.body.email,
-    //                 image:{
-    //                     data: req.file.filename,
-    //                     contentType: 'image/png'
-    //                 }
-    //             })
-    //             newProPic.save().then(()=>res.send('successfully uploaded')).catch(err=>console.log(err))
-    //         }
-    //     })
+    uploadProPic: function(req,res){
+        cloudinary.v2.uploader.upload(req.body.path,
+                { public_id: req.body.name }, 
+                function(error, result) {console.log(result); });
         
-    // }
+    }
 
 } 
 
