@@ -3,6 +3,7 @@ var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
 const multer = require('multer')
 const proPicModel = require('../models/proPic')
+const cloudinary = require('cloudinary')
 
 
 
