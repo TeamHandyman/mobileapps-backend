@@ -2,8 +2,9 @@ var User = require('../models/user')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
 const multer = require('multer')
-const proPicModel = require('../models/proPic')
 const proPic = require('../models/proPic')
+const nicFront = require('../models/nicFront')
+const nicBack = require('../models/nicBack')
 // const cloudinary = require('cloudinary')
 
 
@@ -44,6 +45,44 @@ var functions = {
                 url: req.body.url,
             });
             newPropic.save(function(err, newPropic){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
+    },
+    uploadNicFront: function (req,res){
+        if((!req.body.email) || (!req.body.url)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var newNicFront = nicFront({
+                email: req.body.email,
+                url: req.body.url,
+            });
+            newNicFront.save(function(err, newNicFront){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
+    },
+    uploadNicBack: function (req,res){
+        if((!req.body.email) || (!req.body.url)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var newNicBack = nicBack({
+                email: req.body.email,
+                url: req.body.url,
+            });
+            newNicBack.save(function(err, newNicBack){
                 if(err){
                     res.json({success:false , msg:'Failed to save'})
                 }

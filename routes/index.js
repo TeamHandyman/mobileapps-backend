@@ -20,6 +20,8 @@ router.post('/checkEmailAvailability', actions.checkEmailAvailability)
 router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
 //upload pro pic
 router.post('/uploadProPic', actions.uploadProPic)
+router.post('/uploadNicFront', actions.uploadNicFront)
+router.post('/uploadNicBack', actions.uploadNicBack)
 //get
 router.get('/getinfo', actions.getinfo)
 // router.get('/getPropic', actions.getPropic)
