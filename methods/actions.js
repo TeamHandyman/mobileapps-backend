@@ -2,7 +2,8 @@ var User = require('../models/user')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
 const multer = require('multer')
-// const proPicModel = require('../models/proPic')
+const proPicModel = require('../models/proPic')
+const proPic = require('../models/proPic')
 // const cloudinary = require('cloudinary')
 
 
@@ -24,6 +25,25 @@ var functions = {
                 district: req.body.district
             });
             newCustomer.save(function(err, newCustomer){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
+    },
+    uploadProPic: function (req,res){
+        if((!req.body.email) || (!req.body.url)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var newPropic = proPic({
+                email: req.body.email,
+                url: req.body.url,
+            });
+            newPropic.save(function(err, newPropic){
                 if(err){
                     res.json({success:false , msg:'Failed to save'})
                 }
@@ -102,12 +122,6 @@ var functions = {
             return res.json({success:false, msg:'No headers'})
         }
     },
-    // uploadProPic: function(req,res){
-    //     cloudinary.v2.uploader.upload(req.body.path,
-    //             { public_id: 'asd' }, 
-    //             function(error, result) {console.log(result); });
-        
-    // }
 
 } 
 

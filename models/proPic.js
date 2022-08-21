@@ -5,7 +5,10 @@ const proPicSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    image: Buffer
+    url : {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = proPicModel = mongoose.model('proPicModel',proPicSchema,'proPics')
