@@ -35,6 +35,32 @@ var functions = {
             })
         }
     },
+    addNewWorker: function (req,res){
+        if((!req.body.email) || (!req.body.password) || (!req.body.phone) || (!req.body.fName) || (!req.body.gender) || (!req.body.district) || (!req.body.city) || (!req.body.jobType)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var newWorker = User({
+                fName: req.body.fName,
+                lName: req.body.lName,
+                phone: req.body.phone,
+                email: req.body.email,
+                password: req.body.password,
+                gender: req.body.gender,
+                district: req.body.district,
+                district: req.body.city,
+                district: req.body.jobType
+            });
+            newWorker.save(function(err, newWorker){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
+    },
     uploadProPic: function (req,res){
         if((!req.body.email) || (!req.body.url)){
             res.json({success: false, msg: 'Please fill all the required fields'})

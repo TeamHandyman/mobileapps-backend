@@ -30,6 +30,14 @@ var userCustomerSchema = new Schema({
     district: {
         type: String,
         require: true
+    },
+    city: {
+        type: String,
+        require: true
+    },
+    jobType: {
+        type: String,
+        require: false
     }
 })
 

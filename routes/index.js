@@ -12,6 +12,7 @@ router.get('/dashboard', (req,res) =>{
 
 // adding a new user
 router.post('/addCustomer', actions.addNewCustomer)
+router.post('/addWorker', actions.addNewWorker)
 //login
 router.post('/loginCustomer', actions.loginCustomer)
 //check email availability
