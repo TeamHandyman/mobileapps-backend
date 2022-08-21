@@ -11,4 +11,4 @@ const nicBackSchema = mongoose.Schema({
     }
 })
 
-module.exports = nicBackModel = mongoose.model('nicBackModel',nicBackModel,'nicBack')
+module.exports = nicBackModel = mongoose.model('nicBackModel',nicBackSchema,'nicBack')

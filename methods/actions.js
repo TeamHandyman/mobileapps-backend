@@ -48,8 +48,8 @@ var functions = {
                 password: req.body.password,
                 gender: req.body.gender,
                 district: req.body.district,
-                district: req.body.city,
-                district: req.body.jobType
+                city: req.body.city,
+                jobType: req.body.jobType
             });
             newWorker.save(function(err, newWorker){
                 if(err){
