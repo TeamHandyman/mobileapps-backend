@@ -144,7 +144,7 @@ var functions = {
     checkEmailAvailability: function(req,res){
         User.findOne({
             email: req.body.email,
-            userType: req.body.checkingUserType
+            userType: req.body.userType
         }, function(err,user){
             if(err) throw err
             if(!user){
