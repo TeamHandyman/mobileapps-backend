@@ -158,7 +158,7 @@ var functions = {
     checkPhoneAvailability: function(req,res){
         User.findOne({
             phone: req.body.phone,
-            userType: req.body.checkingUserType
+            userType: req.body.userType
         }, function(err,user){
             if(err) throw err
             if(!user){
