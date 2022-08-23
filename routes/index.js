@@ -24,6 +24,7 @@ router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
 router.post('/uploadProPic', actions.uploadProPic)
 router.post('/uploadNicFront', actions.uploadNicFront)
 router.post('/uploadNicBack', actions.uploadNicBack)
+router.post('/uploadCustJobImage', actions.uploadCustJobImage)
 //get
 router.get('/getinfo', actions.getinfo)
 // router.get('/getPropic', actions.getPropic)

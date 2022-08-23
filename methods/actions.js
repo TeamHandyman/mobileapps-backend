@@ -6,6 +6,7 @@ const proPic = require('../models/proPic')
 const nicFront = require('../models/nicFront')
 const nicBack = require('../models/nicBack')
 const customerJob = require('../models/customerJob')
+const custJobImage = require('../models/custJobImage')
 // const cloudinary = require('cloudinary')
 
 
@@ -96,6 +97,25 @@ var functions = {
                 url: req.body.url,
             });
             newPropic.save(function(err, newPropic){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
+    },
+    uploadCustJobImage: function (req,res){
+        if((!req.body.email) || (!req.body.url)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var newCustJobImage = custJobImage({
+                email: req.body.email,
+                url: req.body.url,
+            });
+            newCustJobImage.save(function(err, newCustJobImage){
                 if(err){
                     res.json({success:false , msg:'Failed to save'})
                 }
