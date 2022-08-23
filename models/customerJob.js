@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 
 const custJobSchema = mongoose.Schema({
     title : {
-        type: Text,
+        type: String,
         required: true
     },
     workerType : {
-        type: Text,
+        type: String,
         required: true
     },
     description : {
-        type: Text,
+        type: String,
         required: true
     },
     date : {
