@@ -27,6 +27,7 @@ router.post('/uploadNicBack', actions.uploadNicBack)
 router.post('/uploadCustJobImage', actions.uploadCustJobImage)
 //get
 router.get('/getinfo', actions.getinfo)
+router.get('/getCustomerAds', actions.getCustomerAds)
 // router.get('/getPropic', actions.getPropic)
 
 

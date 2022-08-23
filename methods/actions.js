@@ -225,6 +225,16 @@ var functions = {
     //     }
         
     // },
+    getCustomerAds: async function(req,res){
+        try{
+            const ad = await proPicModel.findOne( { $text: { $search: req.body.term } } )
+            // console.log(propic+"asdsda")
+            res.json(ad)
+        }catch(err){
+            res.send('Error'+err)
+        }
+        
+    },
     getinfo: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
             var token = req.headers.authorization.split(' ')[1]
