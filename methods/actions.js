@@ -23,7 +23,8 @@ var functions = {
                 email: req.body.email,
                 password: req.body.password,
                 gender: req.body.gender,
-                district: req.body.district
+                district: req.body.district,
+                userType: "customer"
             });
             newCustomer.save(function(err, newCustomer){
                 if(err){
@@ -49,7 +50,8 @@ var functions = {
                 gender: req.body.gender,
                 district: req.body.district,
                 city: req.body.city,
-                jobType: req.body.jobType
+                jobType: req.body.jobType,
+                userType: "worker"
             });
             newWorker.save(function(err, newWorker){
                 if(err){

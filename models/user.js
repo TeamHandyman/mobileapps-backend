@@ -38,6 +38,15 @@ var userCustomerSchema = new Schema({
     jobType: {
         type: String,
         require: false
+    },
+    userType: {
+        type: String,
+        require: false
+    },
+    accountStatus: {
+        type: String,
+        require: false,
+        default: "pending"
     }
 })
 
