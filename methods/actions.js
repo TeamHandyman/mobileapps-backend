@@ -124,7 +124,7 @@ var functions = {
         }, function(err,user){
             if(err) throw err
             if(!user){
-                res.json({success:true, msg: 'User not found!'})  
+                res.json({success:false, msg: 'User not found!'})  
             }
             else{
                 user.comparePassword(req.body.password, function(err,isMatch){
@@ -133,7 +133,7 @@ var functions = {
                         res.json({success:true, token: token})  
                     }
                     else{
-                        res.json({success:true, msg: 'Incorrect Credentials!'})  
+                        res.json({success:false, msg: 'Incorrect Credentials!'})  
                     }
                 })
             }
