@@ -5,6 +5,7 @@ const multer = require('multer')
 const proPic = require('../models/proPic')
 const nicFront = require('../models/nicFront')
 const nicBack = require('../models/nicBack')
+const customerJob = require('../models/customerJob')
 // const cloudinary = require('cloudinary')
 
 
@@ -54,6 +55,28 @@ var functions = {
                 userType: "worker"
             });
             newWorker.save(function(err, newWorker){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
+    },
+    postJobCustomer: function (req,res){
+        if((!req.body.title) || (!req.body.workerType) || (!req.body.description) || (!req.body.date)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var newCustJob = customerJob({
+                title: req.body.title,
+                workerType: req.body.workerType,
+                description: req.body.description,
+                date: req.body.date,
+                
+            });
+            newCustJob.save(function(err, newCustJob){
                 if(err){
                     res.json({success:false , msg:'Failed to save'})
                 }
