@@ -227,7 +227,7 @@ var functions = {
     // },
     getCustomerAds: async function(req,res){
         try{
-            const ad = await proPicModel.findOne( { $text: { $search: req.body.term } } )
+            const ad = await proPicModel.findOne( { $text: { $search: "Plumber" } } )
             // console.log(propic+"asdsda")
             res.json(ad)
         }catch(err){
