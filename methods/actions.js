@@ -143,7 +143,8 @@ var functions = {
     },
     checkEmailAvailability: function(req,res){
         User.findOne({
-            email: req.body.email
+            email: req.body.email,
+            userType: req.body.checkingUserType
         }, function(err,user){
             if(err) throw err
             if(!user){
@@ -156,7 +157,8 @@ var functions = {
     },
     checkPhoneAvailability: function(req,res){
         User.findOne({
-            phone: req.body.phone
+            phone: req.body.phone,
+            userType: req.body.checkingUserType
         }, function(err,user){
             if(err) throw err
             if(!user){
