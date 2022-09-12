@@ -10,7 +10,6 @@ const custJobImage = require('../models/custJobImage')
 // const cloudinary = require('cloudinary')
 
 
-
 var functions = {
 
     addNewCustomer: function (req,res){
@@ -227,13 +226,18 @@ var functions = {
         
     // },
     getCustomerAds: async function(req,res){
-        try{
-            const ad = await customerJob.findOne( { $text: { $search: "Plumber" } } )
-            // console.log(propic+"asdsda")
-            res.json(ad)
-        }catch(err){
-            res.send('Error'+err)
-        }
+        customerJob.find({
+            workerType: req.query['term']
+        }, function(err,job){
+            if(err) throw err
+            if(job){
+                res.json({success:true,job:job})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
         
     },
     getEmail: function(req,res){
