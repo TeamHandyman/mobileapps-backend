@@ -71,6 +71,7 @@ var functions = {
         }
         else{
             var newCustJob = customerJob({
+                email: req.body.email,
                 title: req.body.title,
                 workerType: req.body.workerType,
                 description: req.body.description,
@@ -235,11 +236,11 @@ var functions = {
         }
         
     },
-    getinfo: function(req,res){
+    getEmail: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
             var token = req.headers.authorization.split(' ')[1]
             var decodedToken = jwt.decode(token,config.secret)
-            return res.json({success:true,msg:'Hello '+decodedToken.fName})
+            return res.json({success:true,email:decodedToken.email})
         }
         else{
             return res.json({success:false, msg:'No headers'})

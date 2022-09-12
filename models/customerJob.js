@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const custJobSchema = mongoose.Schema({
+    email : {
+        type: String,
+        required: true
+    },
     title : {
         type: String,
         required: true
