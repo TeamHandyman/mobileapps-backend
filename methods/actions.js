@@ -75,6 +75,11 @@ var functions = {
                 workerType: req.body.workerType,
                 description: req.body.description,
                 date: req.body.date,
+                url1: req.body.url1,
+                url2: req.body.url2,
+                url3: req.body.url3,
+                url4: req.body.url4,
+                url5: req.body.url5,
                 
             });
             newCustJob.save(function(err, newCustJob){
