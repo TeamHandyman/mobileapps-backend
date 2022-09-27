@@ -20,7 +20,32 @@ const custJobSchema = mongoose.Schema({
     date : {
         type: Date,
         required: true
-    }
+    },
+    url1 : {
+        type: String,
+        required: true,
+        default: null
+    },
+    url2 : {
+        type: String,
+        required: true,
+        default: null
+    },
+    url3 : {
+        type: String,
+        required: true,
+        default: null
+    },
+    url4 : {
+        type: String,
+        required: true,
+        default: null
+    },
+    url5 : {
+        type: String,
+        required: true,
+        default: null
+    },
 })
 
 module.exports = custJobModel = mongoose.model('custJobModel',custJobSchema,'customerJobs')
