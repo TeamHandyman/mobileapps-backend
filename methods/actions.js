@@ -240,6 +240,21 @@ var functions = {
         
         
     },
+    getInfo: async function(req,res){
+        User.find({
+            workerType: req.query['email']
+        }, function(err,user){
+            if(err) throw err
+            if(user){
+                res.json({success:true,user:user})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
     getEmail: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
             var token = req.headers.authorization.split(' ')[1]
