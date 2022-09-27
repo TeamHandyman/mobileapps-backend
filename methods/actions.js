@@ -250,7 +250,7 @@ var functions = {
         }
     },
     getInfo: function(req,res){
-        user.find({
+        User.findOne({
             email: req.query['email']
         }, function(err,user){
             if(err) throw err
