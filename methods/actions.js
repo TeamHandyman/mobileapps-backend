@@ -226,6 +226,16 @@ var functions = {
         
     // },
     getCustomerAds: async function(req,res){
+        customerJob.aggregate([
+            { $lookup:
+               {
+                 from: 'products',
+                 localField: 'product_id',
+                 foreignField: '_id',
+                 as: 'orderdetails'
+               }
+             }
+            ])
         customerJob.find({
             workerType: req.query['term']
         }, function(err,job){
@@ -241,8 +251,8 @@ var functions = {
         
     },
     getInfo: async function(req,res){
-        User.find({
-            workerType: req.query['email']
+        User.findOne({
+            email: req.query['email']
         }, function(err,user){
             if(err) throw err
             if(user){
