@@ -5,8 +5,9 @@ const multer = require('multer')
 const proPic = require('../models/proPic')
 const nicFront = require('../models/nicFront')
 const nicBack = require('../models/nicBack')
-const customerJob = require('../models/customerJob')
-const custJobImage = require('../models/custJobImage')
+const customeruser = require('../models/customeruser')
+const custuserImage = require('../models/custuserImage')
+const user = require('../models/user')
 // const cloudinary = require('cloudinary')
 
 
@@ -38,7 +39,7 @@ var functions = {
         }
     },
     addNewWorker: function (req,res){
-        if((!req.body.email) || (!req.body.password) || (!req.body.phone) || (!req.body.fName) || (!req.body.gender) || (!req.body.district) || (!req.body.city) || (!req.body.jobType)){
+        if((!req.body.email) || (!req.body.password) || (!req.body.phone) || (!req.body.fName) || (!req.body.gender) || (!req.body.district) || (!req.body.city) || (!req.body.userType)){
             res.json({success: false, msg: 'Please fill all the required fields'})
         }
         else{
@@ -51,7 +52,7 @@ var functions = {
                 gender: req.body.gender,
                 district: req.body.district,
                 city: req.body.city,
-                jobType: req.body.jobType,
+                userType: req.body.userType,
                 userType: "worker"
             });
             newWorker.save(function(err, newWorker){
@@ -64,12 +65,12 @@ var functions = {
             })
         }
     },
-    postJobCustomer: function (req,res){
+    postuserCustomer: function (req,res){
         if((!req.body.title) || (!req.body.workerType) || (!req.body.description) || (!req.body.date)){
             res.json({success: false, msg: 'Please fill all the required fields'})
         }
         else{
-            var newCustJob = customerJob({
+            var newCustuser = customeruser({
                 email: req.body.email,
                 title: req.body.title,
                 workerType: req.body.workerType,
@@ -77,7 +78,7 @@ var functions = {
                 date: req.body.date,
                 
             });
-            newCustJob.save(function(err, newCustJob){
+            newCustuser.save(function(err, newCustuser){
                 if(err){
                     res.json({success:false , msg:'Failed to save'})
                 }
@@ -106,16 +107,16 @@ var functions = {
             })
         }
     },
-    uploadCustJobImage: function (req,res){
+    uploadCustuserImage: function (req,res){
         if((!req.body.email) || (!req.body.url)){
             res.json({success: false, msg: 'Please fill all the required fields'})
         }
         else{
-            var newCustJobImage = custJobImage({
+            var newCustuserImage = custuserImage({
                 email: req.body.email,
                 url: req.body.url,
             });
-            newCustJobImage.save(function(err, newCustJobImage){
+            newCustuserImage.save(function(err, newCustuserImage){
                 if(err){
                     res.json({success:false , msg:'Failed to save'})
                 }
@@ -226,19 +227,17 @@ var functions = {
         
     // },
     getCustomerAds: async function(req,res){
-        customerJob.find({
+        customeruser.find({
             workerType: req.query['term']
-        }, function(err,job){
+        }, function(err,user){
             if(err) throw err
-            if(job){
-                res.json({success:true,job:job})
+            if(user){
+                res.json({success:true,user:user})
             }
             else{
                 res.json({success:false})
             }
         })
-        
-        
     },
     getEmail: function(req,res){
         if(req.headers.authorization && req.headers.authorization.split(' ')[0]==='Bearer'){
@@ -249,6 +248,19 @@ var functions = {
         else{
             return res.json({success:false, msg:'No headers'})
         }
+    },
+    getInfo: function(req,res){
+        user.find({
+            email: req.query['email']
+        }, function(err,user){
+            if(err) throw err
+            if(user){
+                res.json({success:true,user:user})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
     },
 
 } 
