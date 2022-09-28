@@ -75,13 +75,15 @@ var functions = {
                 workerType: req.body.workerType,
                 description: req.body.description,
                 date: req.body.date,
-                url1: req.body.url1 ? req.body.url1 : "",
-                url2: req.body.url2 ? req.body.url2 : "",
-                url3: req.body.url3 ? req.body.url3 : "",
-                url4: req.body.url4 ? req.body.url4 : "",
-                url5: req.body.url5 ? req.body.url5 : "",
+               
                 
             });
+            req.body.url1 ? newCustJob.urls.push(req.body.url1) : null,
+            req.body.url2 ? newCustJob.urls.push(req.body.url2) : null,
+            req.body.url3 ? newCustJob.urls.push(req.body.url3) : null,
+            req.body.url4 ? newCustJob.urls.push(req.body.url4) : null,
+            req.body.url5 ? newCustJob.urls.push(req.body.url5) : null,
+            
             newCustJob.save(function(err, newCustJob){
                 if(err){
                     res.json({success:false , msg:'Failed to save'})
