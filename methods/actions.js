@@ -75,11 +75,11 @@ var functions = {
                 workerType: req.body.workerType,
                 description: req.body.description,
                 date: req.body.date,
-                url1: req.body.url1 != "" ? req.body.url1 : null,
-                url2: req.body.url2 != "" ? req.body.url2 : null,
-                url3: req.body.url3 != "" ? req.body.url3 : null,
-                url4: req.body.url4 != "" ? req.body.url4 : null,
-                url5: req.body.url5 != "" ? req.body.url5 : null,
+                url1: req.body.url1 ? req.body.url1 : null,
+                url2: req.body.url2 ? req.body.url2 : null,
+                url3: req.body.url3 ? req.body.url3 : null,
+                url4: req.body.url4 ? req.body.url4 : null,
+                url5: req.body.url5 ? req.body.url5 : null,
                 
             });
             newCustJob.save(function(err, newCustJob){
