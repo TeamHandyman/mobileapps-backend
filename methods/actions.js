@@ -71,12 +71,12 @@ var functions = {
         else{
             var newCustJob = customerJob({
                 email: req.body.email,
+                fName: req.body.fName,
+                lName: req.body.lName,
                 title: req.body.title,
                 workerType: req.body.workerType,
                 description: req.body.description,
                 date: req.body.date,
-               
-                
             });
             req.body.url1 ? newCustJob.urls.push(req.body.url1) : null,
             req.body.url2 ? newCustJob.urls.push(req.body.url2) : null,

@@ -5,6 +5,14 @@ const custJobSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    fName: {
+        type: String,
+        require: true
+    },
+    lName: {
+        type: String,
+        require: false
+    },
     title : {
         type: String,
         required: true
