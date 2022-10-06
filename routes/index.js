@@ -20,11 +20,6 @@ router.post('/loginCustomer', actions.loginCustomer)
 router.post('/checkEmailAvailability', actions.checkEmailAvailability)
 //check phone availability
 router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
-//upload pro pic
-router.post('/uploadProPic', actions.uploadProPic)
-router.post('/uploadNicFront', actions.uploadNicFront)
-router.post('/uploadNicBack', actions.uploadNicBack)
-router.post('/uploadCustJobImage', actions.uploadCustJobImage)
 //get
 router.get('/getEmail', actions.getEmail)
 router.get('/getCustomerAds', actions.getCustomerAds)
