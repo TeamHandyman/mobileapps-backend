@@ -25,7 +25,8 @@ var functions = {
                 password: req.body.password,
                 gender: req.body.gender,
                 district: req.body.district,
-                userType: "customer"
+                userType: "customer",
+                profilePic: req.body.proPicUrl
             });
             newCustomer.save(function(err, newCustomer){
                 if(err){

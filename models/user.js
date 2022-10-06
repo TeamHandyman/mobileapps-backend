@@ -47,6 +47,18 @@ var userCustomerSchema = new Schema({
         type: String,
         require: false,
         default: "pending"
+    },
+    profilePic : {
+        type: String,
+        required: true
+    },
+    nicFront : {
+        type: String,
+        required: true
+    },
+    nicBack : {
+        type: String,
+        required: true
     }
 })
 
