@@ -219,7 +219,7 @@ var functions = {
     SendNotification: function(req,res,next){
         var message = {
             app_id: ONE_SIGNAL_CONFIG.APP_ID,
-            contents: {en: "Test notification"},
+            contents: {en: req.body.msg},
             included_segments: ["included_player_ids"],
             include_player_ids: req.body.device,
             content_available: true,
