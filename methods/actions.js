@@ -77,6 +77,7 @@ var functions = {
                 email: req.body.email,
                 fName: req.body.fName,
                 lName: req.body.lName,
+                proPic: req.body.proPic,
                 title: req.body.title,
                 workerType: req.body.workerType,
                 description: req.body.description,

@@ -13,6 +13,10 @@ const custJobSchema = mongoose.Schema({
         type: String,
         require: false
     },
+    proPic: {
+        type: String,
+        require: false
+    },
     title : {
         type: String,
         required: true
