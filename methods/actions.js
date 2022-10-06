@@ -28,7 +28,8 @@ var functions = {
                 gender: req.body.gender,
                 district: req.body.district,
                 userType: "customer",
-                profilePic: req.body.proPicUrl
+                profilePic: req.body.proPicUrl,
+                oneSignalID: req.body.oneSignalID,
             });
             newCustomer.save(function(err, newCustomer){
                 if(err){
