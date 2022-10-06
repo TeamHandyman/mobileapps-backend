@@ -7,6 +7,8 @@ const nicFront = require('../models/nicFront')
 const nicBack = require('../models/nicBack')
 const customerJob = require('../models/customerJob')
 const custJobImage = require('../models/custJobImage')
+const pushNotificationService = require('../services/push_notification_service')
+const { ONE_SIGNAL_CONFIG } = require('../config/notification.config')
 // const cloudinary = require('cloudinary')
 
 
@@ -212,6 +214,28 @@ var functions = {
             return res.json({success:false, msg:'No headers'})
         }
     },
+    SendNotification: function(req,res,next){
+        var message = {
+            app_id: ONE_SIGNAL_CONFIG.APP_ID,
+            contents: {en: "Test notification"},
+            included_segments: ["All"],
+            content_available: true,
+            small_icon : "ic_notification_icon",
+            data: {
+                PushTitle: "Custom notification",
+            },
+        };
+
+        pushNotificationService.SendNotification(message, (error, results)=>{
+            if(error){
+                return next(error);
+            }
+            return res.status(200).send({
+                message: "Success",
+                data: results,
+            });
+        });
+    }
 
 } 
 
