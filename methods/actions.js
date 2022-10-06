@@ -217,7 +217,9 @@ var functions = {
         }
     },
     SendNotification: function(req,res,next){
-        
+        console.log("asd");
+        console.log(req.body.msg);
+        console.log(req.body.devices);
         var message = {
             app_id: ONE_SIGNAL_CONFIG.APP_ID,
             contents: {en: req.body.msg},
