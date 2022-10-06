@@ -217,12 +217,12 @@ var functions = {
         }
     },
     SendNotification: function(req,res,next){
-        console.log(typeof(req.query['device']));
+        const device = [req.query['device']];
         var message = {
             app_id: ONE_SIGNAL_CONFIG.APP_ID,
             contents: {en: req.query['msg']},
             included_segments: ["included_player_ids"],
-            include_player_ids: req.query['device'],
+            include_player_ids: device,
             content_available: true,
             small_icon : "ic_notification_icon",
             data: {
