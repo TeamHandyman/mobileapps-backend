@@ -50,15 +50,15 @@ var userCustomerSchema = new Schema({
     },
     profilePic : {
         type: String,
-        required: true
+        required: false
     },
     nicFront : {
         type: String,
-        required: true
+        required: false
     },
     nicBack : {
         type: String,
-        required: true
+        required: false
     }
 })
 
