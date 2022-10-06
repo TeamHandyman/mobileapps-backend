@@ -1,9 +1,10 @@
+const { json } = require("body-parser");
 const {ONE_SIGNAL_CONFIG} = require("../config/notification.config");
 
 async function SendNotification(data, callback){
 
     var headers = {
-        "Content-Type": "appication/json; charset=uts-8",
+        "Content-Type": "application/json; charset=uts-8",
         "Authorization": "Basic " + ONE_SIGNAL_CONFIG.API_KEY,
     };
 

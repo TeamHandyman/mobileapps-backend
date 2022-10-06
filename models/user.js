@@ -59,6 +59,10 @@ var userCustomerSchema = new Schema({
     nicBack : {
         type: String,
         required: false
+    },
+    oneSignalID : {
+        type: String,
+        required: true
     }
 })
 
