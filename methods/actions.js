@@ -217,14 +217,11 @@ var functions = {
         }
     },
     SendNotification: function(req,res,next){
-        console.log("asd");
-        console.log(req.body.msg);
-        console.log(req.body.devices);
         var message = {
             app_id: ONE_SIGNAL_CONFIG.APP_ID,
-            contents: {en: req.body.msg},
+            contents: {en: req.query['msg']},
             included_segments: ["included_player_ids"],
-            include_player_ids: req.body.device,
+            include_player_ids: req.query['device'],
             content_available: true,
             small_icon : "ic_notification_icon",
             data: {
