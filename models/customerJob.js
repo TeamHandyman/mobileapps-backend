@@ -33,6 +33,10 @@ const custJobSchema = mongoose.Schema({
         type: Date,
         required: true
     },
+    oneSignalID : {
+        type: String,
+        required: true
+    },
     urls : [String],
 })
 
