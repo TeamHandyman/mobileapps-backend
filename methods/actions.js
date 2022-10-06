@@ -220,7 +220,7 @@ var functions = {
         
         var message = {
             app_id: ONE_SIGNAL_CONFIG.APP_ID,
-            contents: {en: req.body.msg},
+            contents: {en: 'req.body.msg'},
             included_segments: ["included_player_ids"],
             include_player_ids: req.body.device,
             content_available: true,
