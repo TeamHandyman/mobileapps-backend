@@ -53,7 +53,10 @@ var functions = {
                 district: req.body.district,
                 city: req.body.city,
                 jobType: req.body.jobType,
-                userType: "worker"
+                userType: "worker",
+                nicFront: req.body.nicFrontUrl,
+                nicBack: req.body.nicBackUrl,
+                profilePic: req.body.proPicUrl
             });
             newWorker.save(function(err, newWorker){
                 if(err){
@@ -95,82 +98,7 @@ var functions = {
             })
         }
     },
-    uploadProPic: function (req,res){
-        if((!req.body.email) || (!req.body.url)){
-            res.json({success: false, msg: 'Please fill all the required fields'})
-        }
-        else{
-            var newPropic = proPic({
-                email: req.body.email,
-                url: req.body.url,
-            });
-            newPropic.save(function(err, newPropic){
-                if(err){
-                    res.json({success:false , msg:'Failed to save'})
-                }
-                else{
-                    res. json({success: true, msg: 'Successfully Registered'})
-                }
-            })
-        }
-    },
-    uploadCustJobImage: function (req,res){
-        if((!req.body.email) || (!req.body.url)){
-            res.json({success: false, msg: 'Please fill all the required fields'})
-        }
-        else{
-            var newCustJobImage = custJobImage({
-                email: req.body.email,
-                url: req.body.url,
-            });
-            newCustJobImage.save(function(err, newCustJobImage){
-                if(err){
-                    res.json({success:false , msg:'Failed to save'})
-                }
-                else{
-                    res. json({success: true, msg: 'Successfully Registered'})
-                }
-            })
-        }
-    },
-    uploadNicFront: function (req,res){
-        if((!req.body.email) || (!req.body.url)){
-            res.json({success: false, msg: 'Please fill all the required fields'})
-        }
-        else{
-            var newNicFront = nicFront({
-                email: req.body.email,
-                url: req.body.url,
-            });
-            newNicFront.save(function(err, newNicFront){
-                if(err){
-                    res.json({success:false , msg:'Failed to save'})
-                }
-                else{
-                    res. json({success: true, msg: 'Successfully Registered'})
-                }
-            })
-        }
-    },
-    uploadNicBack: function (req,res){
-        if((!req.body.email) || (!req.body.url)){
-            res.json({success: false, msg: 'Please fill all the required fields'})
-        }
-        else{
-            var newNicBack = nicBack({
-                email: req.body.email,
-                url: req.body.url,
-            });
-            newNicBack.save(function(err, newNicBack){
-                if(err){
-                    res.json({success:false , msg:'Failed to save'})
-                }
-                else{
-                    res. json({success: true, msg: 'Successfully Registered'})
-                }
-            })
-        }
-    },
+    
     loginCustomer: function(req,res){
         User.findOne({
             email: req.body.email,
