@@ -85,6 +85,7 @@ var functions = {
                 workerType: req.body.workerType,
                 description: req.body.description,
                 date: req.body.date,
+                oneSignalID: req.body.oneSignalID
             });
             req.body.url1 ? newCustJob.urls.push(req.body.url1) : null,
             req.body.url2 ? newCustJob.urls.push(req.body.url2) : null,
