@@ -9,6 +9,7 @@ const customerJob = require('../models/customerJob')
 const custJobImage = require('../models/custJobImage')
 const pushNotificationService = require('../services/push_notification_service')
 const { ONE_SIGNAL_CONFIG } = require('../config/notification.config')
+var ObjectId = require('mongodb').ObjectId;
 // const cloudinary = require('cloudinary')
 
 
@@ -105,10 +106,14 @@ var functions = {
             })
         }
     },
-   /* acceptCustomerJob: function(){
-        const filter = {_id:"asd"}
-        const update = {jobStatus:"accepted",}
-    },*/
+    acceptCustomerJob: function(req,res){
+        const filter = {email: 'abcd@gmail.com'}
+        const update = {jobStatus:"accepted"}
+
+        let doc = customerJob.findOneAndUpdate(filter, update, {
+            new: true
+          });
+    },
     loginCustomer: function(req,res){
         User.findOne({
             email: req.body.email,
