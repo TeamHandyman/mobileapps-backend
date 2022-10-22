@@ -118,6 +118,20 @@ var functions = {
             }
           });
     },
+    getCustomerJobStatus: function(req,res){
+        customerJob.findOne({
+            _id: req.body.id,
+            
+        }, function(err,customerJob){
+            if(err) throw err
+            if(!customerJob){
+                res.json({success:true})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+    },
     loginCustomer: function(req,res){
         User.findOne({
             email: req.body.email,
