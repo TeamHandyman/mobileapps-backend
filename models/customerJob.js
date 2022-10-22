@@ -52,7 +52,19 @@ const custJobSchema = mongoose.Schema({
         require: false,
         default: "pending"
     },
-    
+    workerName:{
+        type: String,
+        require: false
+    },
+    workerProPic:{
+        type: String,
+        require: false
+    },
+    workerDistrict:{
+        type: String,
+        require: false
+    }
+
 })
 
 module.exports = custJobModel = mongoose.model('custJobModel',custJobSchema,'customerJobs')
