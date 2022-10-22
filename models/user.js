@@ -62,7 +62,7 @@ var userCustomerSchema = new Schema({
     },
     oneSignalID : {
         type: String,
-        required: true
+        required: false
     }
 })
 
