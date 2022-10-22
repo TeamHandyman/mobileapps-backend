@@ -219,6 +219,32 @@ var functions = {
         
         
     },
+    getCustomerNotificationsForJobAccept: async function(req,res){
+        customerJob.aggregate([
+            { $lookup:
+               {
+                 from: 'products',
+                 localField: 'product_id',
+                 foreignField: '_id',
+                 as: 'orderdetails'
+               }
+             }
+            ])
+        customerJob.find({
+            email: req.query['email'],
+            jobStatus: 'accepted'
+        }, function(err,job){
+            if(err) throw err
+            if(job){
+                res.json({success:true,job:job})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
     getInfo: async function(req,res){
         User.findOne({
             email: req.query['email']

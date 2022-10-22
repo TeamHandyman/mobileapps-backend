@@ -25,6 +25,7 @@ router.post('/checkPhoneAvailability', actions.checkPhoneAvailability)
 //get
 router.get('/getEmail', actions.getEmail)
 router.get('/getCustomerAds', actions.getCustomerAds)
+router.get('/getCustomerNotificationsForJobAccept', actions.getCustomerNotificationsForJobAccept)
 router.get('/getInfo', actions.getInfo)
 // router.get('/getPropic', actions.getPropic)
 
