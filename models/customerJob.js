@@ -46,6 +46,13 @@ const custJobSchema = mongoose.Schema({
         required: true
     },
     urls : [String],
+
+    jobStatus : {
+        type: String,
+        require: false,
+        default: "pending"
+    },
+    
 })
 
 module.exports = custJobModel = mongoose.model('custJobModel',custJobSchema,'customerJobs')

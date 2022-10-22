@@ -105,7 +105,10 @@ var functions = {
             })
         }
     },
-    
+   /* acceptCustomerJob: function(){
+        const filter = {_id:"asd"}
+        const update = {jobStatus:"accepted",}
+    },*/
     loginCustomer: function(req,res){
         User.findOne({
             email: req.body.email,
@@ -241,7 +244,8 @@ var functions = {
                 data: results,
             });
         });
-    }
+    },
+    
 
 } 
 
