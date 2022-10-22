@@ -107,10 +107,7 @@ var functions = {
         }
     },
     acceptCustomerJob: function(req,res){
-        const filter = {email: 'abcd@gmail.com'}
-        const update = {jobStatus:"accepted"}
-
-        customerJob.updateOne({ _id: "635430ec859fce709b72433d" }, { jobStatus: "accepted" }, function(
+        customerJob.updateOne({ _id: req.body.id }, { jobStatus: "accepted" }, function(
             err,
             result
           ) {
