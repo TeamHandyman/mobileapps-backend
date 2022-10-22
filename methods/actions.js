@@ -110,8 +110,15 @@ var functions = {
         const filter = {email: 'abcd@gmail.com'}
         const update = {jobStatus:"accepted"}
 
-        let doc = customerJob.findOneAndUpdate(filter, update, {
-            new: true
+        customerJob.updateOne({ email: "abcd@gmail.com" }, { jobStatus: "accepted" }, function(
+            err,
+            result
+          ) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.json(result);
+            }
           });
     },
     loginCustomer: function(req,res){
