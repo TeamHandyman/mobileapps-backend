@@ -121,14 +121,14 @@ var functions = {
     getCustomerJobStatus: function(req,res){
         customerJob.findOne({
             _id: req.body.id,
-            
+            jobStatus: "accepted"
         }, function(err,customerJob){
             if(err) throw err
             if(!customerJob){
-                res.json({success:true})
+                res.json({success:false})
             }
             else{
-                res.json({success:false})
+                res.json({success:true})
             }
         })
     },
