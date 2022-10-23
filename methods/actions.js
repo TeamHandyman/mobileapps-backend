@@ -220,16 +220,7 @@ var functions = {
         
     },
     getCustomerNotificationsForJobAccept: async function(req,res){
-        customerJob.aggregate([
-            { $lookup:
-               {
-                 from: 'products',
-                 localField: 'product_id',
-                 foreignField: '_id',
-                 as: 'orderdetails'
-               }
-             }
-            ])
+        
         customerJob.find({
             email: req.query['email']
         }, function(err,job){
