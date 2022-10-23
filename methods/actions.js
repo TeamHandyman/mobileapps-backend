@@ -235,7 +235,7 @@ var functions = {
         
         
     },
-    getInfo: async function(req,res){
+    getInfo: function(req,res){
         User.findOne({
             email: req.query['email']
         }, function(err,user){
