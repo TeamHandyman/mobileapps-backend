@@ -130,7 +130,7 @@ var functions = {
                 res.json({success:false})
             }
             else{
-                var isAccepted = customerJob.responses.find(req.body.email)
+                var isAccepted = false
                 if(isAccepted){
                     res.json({success:true})
                 }
