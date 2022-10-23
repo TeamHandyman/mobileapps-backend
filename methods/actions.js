@@ -226,7 +226,7 @@ var functions = {
         }, function(err,job){
             if(err) throw err
             if(job){
-                res.json({success:true,responses:job})
+                res.json({success:true,responses:job.responses})
             }
             else{
                 res.json({success:false})
