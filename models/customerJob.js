@@ -46,24 +46,9 @@ const custJobSchema = mongoose.Schema({
         required: true
     },
     urls : [String],
-
-    jobStatus : {
-        type: String,
-        require: false,
-        default: "pending"
-    },
-    workerName:{
-        type: String,
-        require: false
-    },
-    workerProPic:{
-        type: String,
-        require: false
-    },
-    workerDistrict:{
-        type: String,
-        require: false
-    }
+    
+    responses: [String]
+    
 
 })
 
