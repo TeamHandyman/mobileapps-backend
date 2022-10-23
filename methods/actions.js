@@ -130,13 +130,7 @@ var functions = {
                 res.json({success:false})
             }
             else{
-                isAccepted = true
-                if(isAccepted){
-                    res.json({success:true,emails:customerJob.responses})
-                }
-                else{
-                    res.json({success:false})
-                }
+                res.json({success:true,emails:customerJob.responses})
             }
         })
     },
