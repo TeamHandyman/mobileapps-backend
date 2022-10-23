@@ -221,7 +221,7 @@ var functions = {
     },
     getCustomerNotificationsForJobAccept: async function(req,res){
         
-        customerJob.findAll({
+        customerJob.find({
             email: req.query['email']
         }, function(err,job){
             if(err) throw err
