@@ -107,9 +107,7 @@ var functions = {
         }
     },
     acceptCustomerJob: function(req,res){
-        const updateDoc = {
-            $push: {"responses": req.body.email}
-        }
+    
         customerJob.updateOne({ _id: req.body.id }, { $push: {"responses": req.body.email} }, function(
             err,
             result
