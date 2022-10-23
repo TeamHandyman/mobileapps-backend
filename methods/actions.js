@@ -130,7 +130,7 @@ var functions = {
                 res.json({success:false})
             }
             else{
-                
+                isAccepted = true
                 if(isAccepted){
                     res.json({success:true,job:customerJob.responses})
                 }
