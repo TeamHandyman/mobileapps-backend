@@ -110,7 +110,7 @@ var functions = {
         const updateDoc = {
             $push: {"responses": req.body.email}
         }
-        customerJob.updateOne({ _id: req.body.id }, { $push: {responses: req.body.email} }, function(
+        customerJob.updateOne({ _id: req.body.id }, { email:email }, function(
             err,
             result
           ) {
