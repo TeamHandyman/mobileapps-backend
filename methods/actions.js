@@ -231,12 +231,11 @@ var functions = {
              }
             ])
         customerJob.find({
-            email: req.query['email'],
-            jobStatus: 'accepted'
+            email: req.query['email']
         }, function(err,job){
             if(err) throw err
             if(job){
-                res.json({success:true,job:job})
+                res.json({success:true,responses:job.responses})
             }
             else{
                 res.json({success:false})
