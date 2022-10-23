@@ -121,17 +121,22 @@ var functions = {
             }
           });
     },
-    getCustomerJobStatus: function(req,res){
+    getAcceptedStateCustomerJob: function(req,res){
         customerJob.findOne({
             _id: req.body.id,
-            jobStatus: "accepted"
         }, function(err,customerJob){
             if(err) throw err
             if(!customerJob){
                 res.json({success:false})
             }
             else{
-                res.json({success:true})
+                var isAccepted = customerJob.responses.find(req.body.email)
+                if(isAccepted){
+                    res.json({success:true})
+                }
+                else{
+                    res.json({success:false})
+                }
             }
         })
     },
