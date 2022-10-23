@@ -221,12 +221,12 @@ var functions = {
     },
     getCustomerNotificationsForJobAccept: async function(req,res){
         
-        customerJob.find({
+        customerJob.findAll({
             email: req.query['email']
         }, function(err,job){
             if(err) throw err
             if(job){
-                res.json({success:true,responses:job.responses})
+                res.json({success:true,responses:job})
             }
             else{
                 res.json({success:false})
