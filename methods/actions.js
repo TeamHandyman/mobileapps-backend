@@ -123,6 +123,7 @@ var functions = {
                 }
                 else{
                     customer = user;
+                    res.json({success:true})
                 }
             });
 
