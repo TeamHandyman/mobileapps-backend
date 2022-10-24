@@ -82,6 +82,7 @@ var functions = {
                 email: req.body.email,
                 fName: req.body.fName,
                 lName: req.body.lName,
+                district: req.body.district,
                 proPic: req.body.proPic,
                 title: req.body.title,
                 workerType: req.body.workerType,
@@ -112,7 +113,6 @@ var functions = {
             res.json({success: false, msg: 'Please fill all the required fields'})
         }
         else{
-
             var newQuotation = quotation({
                 customer: req.body.customerEmail,
                 worker: req.body.workerEmail
