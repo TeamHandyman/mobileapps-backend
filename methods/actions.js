@@ -116,6 +116,7 @@ var functions = {
             var newQuotation = quotation({
                 jobId: req.body.jobId,
                 customer: req.body.customerEmail,
+                customerName: req.body.custName,
                 worker: req.body.workerEmail,
                 jobTitle: req.body.jobTitle,
             });

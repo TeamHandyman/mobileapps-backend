@@ -11,6 +11,10 @@ const quoteSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    customerName:{
+        type: String,
+        required: true
+    },
     worker:{
         type: String,
         required: true
