@@ -115,7 +115,8 @@ var functions = {
         else{
             var newQuotation = quotation({
                 customer: req.body.customerEmail,
-                worker: req.body.workerEmail
+                worker: req.body.workerEmail,
+                jobTitle: req.body.jobTitle
             });
             
             newQuotation.save(function(err, newQuotation){
