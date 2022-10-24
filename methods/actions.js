@@ -304,7 +304,7 @@ var functions = {
         
         quotation.find({
             workerEmail: req.query['email'],
-            status: "recieved"
+            status: "pending"
         }, function(err,quotations){
             if(err) throw err
             if(quotations){
