@@ -60,6 +60,14 @@ var userCustomerSchema = new Schema({
         type: String,
         required: false
     },
+    workerAdDesc : {
+        type: String,
+        required: false
+    },
+    workerAdImgUrl : {
+        type: String,
+        required: false
+    },
     oneSignalID : {
         type: String,
         required: false

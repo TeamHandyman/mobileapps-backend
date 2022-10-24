@@ -171,6 +171,20 @@ var functions = {
             }
           });
     },
+    updateWorkerAdDesc: function(req,res){
+        User.updateOne({ email: req.body.email, userType: "worker" }, { 
+            workerAdDesc: req.body.desc
+        }, function(
+            err,
+            result
+          ) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.json(result);
+            }
+          });
+    },
     getAcceptedStateCustomerJob: function(req,res){
         customerJob.findOne({
             _id: req.body.id,
