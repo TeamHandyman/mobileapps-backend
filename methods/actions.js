@@ -158,7 +158,8 @@ var functions = {
             estimatedTotal : estimatedTotal? estimatedTotal : null,
             estimatedDate : req.body.estimatedDate,
             description : req.body.description,
-            imgUrl: req.body.imgUrl
+            imgUrl: req.body.imgUrl,
+            status: "recieved"
         }, function(
             err,
             result
