@@ -3,7 +3,8 @@ var User = require('../models/user')
 
 const quoteSchema = mongoose.Schema({
     customer:{
-        type: User,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     worker:{
