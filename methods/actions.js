@@ -303,7 +303,8 @@ var functions = {
     getWorkerNotificationsForQuotationRequests: async function(req,res){
         
         quotation.find({
-            workerEmail: req.query['email']
+            workerEmail: req.query['email'],
+            status: "recieved"
         }, function(err,quotations){
             if(err) throw err
             if(quotations){
