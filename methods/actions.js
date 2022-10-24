@@ -144,6 +144,26 @@ var functions = {
             }
           });
     },
+    workerUpdateQuotation: function(req,res){
+    
+        quotation.updateOne({ _id: req.body.id }, { 
+            revenueMethod : req.body.revenueMethod,
+            hourlyRate : req.body.revenueMethod,
+            estimatedTotal : req.body.revenueMethod,
+            estimatedDate : req.body.revenueMethod,
+            description : req.body.revenueMethod,
+            imgUrl: req.body.imgUrl
+        }, function(
+            err,
+            result
+          ) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.json(result);
+            }
+          });
+    },
     getAcceptedStateCustomerJob: function(req,res){
         customerJob.findOne({
             _id: req.body.id,

@@ -36,6 +36,10 @@ const quoteSchema = mongoose.Schema({
         type: Number,
         required : false,
     },
+    estimatedDate :{
+        type: Date,
+        required : false,
+    },
     description :{
         type: String,
         required : false,
