@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 var User = require('../models/user')
 
 const quoteSchema = mongoose.Schema({
+    
+    jobId:{
+        type: String,
+        required: true
+    },
     customer:{
         type: String,
         required: true
@@ -14,6 +19,7 @@ const quoteSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    
     revenueMethod :{
         type: String,
         required : false,
