@@ -123,23 +123,22 @@ var functions = {
                 }
                 else{
                     customer = user;
-                    res.json({success:true})
                 }
             });
 
-            // var newQuotation = quotation({
-            //     customer: customer,
-            //     worker: req.body.workerEmail
-            // });
+            var newQuotation = quotation({
+                customer: customer,
+                worker: req.body.workerEmail
+            });
             
-            // newQuotation.save(function(err, newQuotation){
-            //     if(err){
-            //         res.json({success:false , msg:'Failed to save'})
-            //     }
-            //     else{
-            //         res. json({success: true, msg: 'Successfully Saved'})
-            //     }
-            // })
+            newQuotation.save(function(err, newQuotation){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Saved'})
+                }
+            })
         }
     },
     acceptCustomerJob: function(req,res){
