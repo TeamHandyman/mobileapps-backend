@@ -114,7 +114,7 @@ var functions = {
         else{
 
             var newQuotation = quotation({
-                customer: req.nody.customerEmail,
+                customer: req.body.customerEmail,
                 worker: req.body.workerEmail
             });
             
