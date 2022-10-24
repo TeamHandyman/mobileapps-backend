@@ -301,6 +301,23 @@ var functions = {
         
         
     },
+    getCustomerNotificationsForQuotations: async function(req,res){
+        
+        quotation.find({
+            email: req.query['email'],
+            status: "recieved"
+        }, function(err,job){
+            if(err) throw err
+            if(job){
+                res.json({success:true,responses:job})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
     getWorkerNotificationsForQuotationRequests: async function(req,res){
         
         quotation.find({
