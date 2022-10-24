@@ -23,7 +23,11 @@ const quoteSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    
+    status : {
+        type : String,
+        required : true,
+        default : "pending"
+    },
     revenueMethod :{
         type: String,
         required : false,
