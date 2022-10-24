@@ -145,13 +145,19 @@ var functions = {
           });
     },
     workerUpdateQuotation: function(req,res){
+        var hourlyRate,estimatedTotal;
+        if(req.body.revenueMethod == "Hourly rate"){
+            hourlyRate = req.body.rateOrTotal;
+        }else{
+            estimatedTotal = req.body.rateOrTotal;
+        }
     
         quotation.updateOne({ _id: req.body.id }, { 
             revenueMethod : req.body.revenueMethod,
-            hourlyRate : req.body.revenueMethod,
-            estimatedTotal : req.body.revenueMethod,
-            estimatedDate : req.body.revenueMethod,
-            description : req.body.revenueMethod,
+            hourlyRate : hourlyRate? hourlyRate : null,
+            estimatedTotal : estimatedTotal? estimatedTotal : null,
+            estimatedDate : req.body.estimatedDate,
+            description : req.body.description,
             imgUrl: req.body.imgUrl
         }, function(
             err,
