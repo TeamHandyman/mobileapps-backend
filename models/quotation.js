@@ -10,7 +10,30 @@ const quoteSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    
+    jobTitle : {
+        type: String,
+        required: false
+    },
+    revenueMethod :{
+        type: String,
+        required : false,
+    },
+    hourlyRate :{
+        type: Number,
+        required : false,
+    },
+    estimatedTotal :{
+        type: Number,
+        required : false,
+    },
+    description :{
+        type: String,
+        required : false,
+    },
+    imgUrl :{
+        type: String,
+        required : false,
+    },
 })
 
 module.exports = quoteModel = mongoose.model('quoteModel',quoteSchema,'quotations')
