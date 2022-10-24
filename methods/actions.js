@@ -9,6 +9,7 @@ const customerJob = require('../models/customerJob')
 const custJobImage = require('../models/custJobImage')
 const pushNotificationService = require('../services/push_notification_service')
 const { ONE_SIGNAL_CONFIG } = require('../config/notification.config')
+const quotation =  require('../models/quotation')
 var ObjectId = require('mongodb').ObjectId;
 // const cloudinary = require('cloudinary')
 
@@ -102,6 +103,40 @@ var functions = {
                 }
                 else{
                     res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
+    },
+    createQuotation: function (req,res){
+        if((!req.body.workerEmail) || (!req.body.customerEmail)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var customer;
+            User.findOne({
+                email: req.body.customerEmail,
+                userType: "customer"
+            }, function(err,user){
+                if(err) throw err
+                if(!user){
+                    res.json({success:false})
+                }
+                else{
+                    customer = user;
+                }
+            });
+
+            var newQuotation = quotation({
+                customer: customer,
+                worker: req.body.workerEmail
+            });
+            
+            newQuotation.save(function(err, newQuotation){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Saved'})
                 }
             })
         }

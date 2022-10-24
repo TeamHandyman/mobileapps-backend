@@ -17,6 +17,7 @@ router.post('/addWorker', actions.addNewWorker)
 //login
 router.post('/loginCustomer', actions.loginCustomer)
 router.post('/acceptCustomerJob', actions.acceptCustomerJob)
+router.post('/createQuotation', actions.createQuotation)
 // router.post('/getCustomerJobStatus', actions.getCustomerJobStatus)
 router.post('/getAcceptedStateCustomerJob', actions.getAcceptedStateCustomerJob)
 //check email availability
