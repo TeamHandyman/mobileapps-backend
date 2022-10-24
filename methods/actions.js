@@ -112,22 +112,9 @@ var functions = {
             res.json({success: false, msg: 'Please fill all the required fields'})
         }
         else{
-            var customer;
-            User.findOne({
-                email: req.body.customerEmail,
-                userType: "customer"
-            }, function(err,user){
-                if(err) throw err
-                if(!user){
-                    res.json({success:false})
-                }
-                else{
-                    customer = user;
-                }
-            });
 
             var newQuotation = quotation({
-                customer: customer,
+                customer: req.nody.customerEmail,
                 worker: req.body.workerEmail
             });
             
