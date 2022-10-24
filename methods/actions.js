@@ -271,6 +271,22 @@ var functions = {
         
         
     },
+    getWorkerNotificationsForQuotationRequests: async function(req,res){
+        
+        quotation.find({
+            workerEmail: req.query['email']
+        }, function(err,quotations){
+            if(err) throw err
+            if(quotations){
+                res.json({success:true,quotations:quotations})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
     getInfo: function(req,res){
         User.findOne({
             email: req.query['email']
