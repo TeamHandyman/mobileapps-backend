@@ -154,6 +154,20 @@ var functions = {
             }
         })
     },
+    getQuotationState: function(req,res){
+        quotation.findOne({
+            workerEmail: req.body.workerEmail,
+            customerEmail: req.body.customerEmail,
+        }, function(err,quotation){
+            if(err) throw err
+            if(!quotation){
+                res.json({success:false})
+            }
+            else{
+                res.json({success:true})
+            }
+        })
+    },
     loginCustomer: function(req,res){
         User.findOne({
             email: req.body.email,

@@ -20,6 +20,7 @@ router.post('/acceptCustomerJob', actions.acceptCustomerJob)
 router.post('/createQuotation', actions.createQuotation)
 // router.post('/getCustomerJobStatus', actions.getCustomerJobStatus)
 router.post('/getAcceptedStateCustomerJob', actions.getAcceptedStateCustomerJob)
+router.post('/getQuotationState', actions.getQuotationState)
 //check email availability
 router.post('/checkEmailAvailability', actions.checkEmailAvailability)
 //check phone availability
