@@ -68,6 +68,11 @@ var userCustomerSchema = new Schema({
         type: String,
         required: false
     },
+    jobCount : {
+        type: Number,
+        required: false,
+        default: 0
+    },
     oneSignalID : {
         type: String,
         required: false
