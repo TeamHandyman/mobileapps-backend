@@ -172,7 +172,8 @@ var functions = {
             estimatedDate : req.body.estimatedDate,
             description : req.body.description,
             imgUrl: req.body.imgUrl,
-            status: "recieved"
+            status: "recieved",
+            workerName: req.body.workerName
         }, function(
             err,
             result

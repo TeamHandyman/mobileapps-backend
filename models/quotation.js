@@ -19,6 +19,10 @@ const quoteSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    workerName:{
+        type: String,
+        required: false
+    },
     jobTitle : {
         type: String,
         required: false
