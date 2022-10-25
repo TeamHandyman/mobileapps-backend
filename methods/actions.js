@@ -146,7 +146,7 @@ var functions = {
     },
     confirmJob: function(req,res){
     
-        customerJob.updateOne({ jobId: req.body.jobId }, { status: "confirmed" }, function(
+        quotation.updateOne({ jobId: req.body.jobId }, { status: "confirmed" }, function(
             err,
             result
           ) {
