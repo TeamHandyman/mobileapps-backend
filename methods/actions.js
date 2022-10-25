@@ -356,7 +356,7 @@ var functions = {
         
         
     },
-    getRecievedQuotations: async function(req,res){
+    getQuotations: async function(req,res){
         
         quotation.find({
             customer: req.query['email'],
