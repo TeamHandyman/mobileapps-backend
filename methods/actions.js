@@ -161,7 +161,7 @@ var functions = {
     markJobAsComplete: function(req,res){
         
         
-        User.updateOne({ email: req.body.workerEmail, userType:"worker" }, { $inc: {"jobCount": 1}}, function(
+        User.updateOne({ email: req.body.workerEmail }, { $inc: {"jobCount": 1}}, function(
             err,
             result
           ) {
