@@ -343,11 +343,11 @@ var functions = {
         
         
     },
-    getConfirmedJobs: async function(req,res){
+    getPendingJobs: async function(req,res){
         
         quotation.find({
             customer: req.query['email'],
-            status: "confirmed"
+            status: "recieved"
         }, function(err,u){
             if(err) throw err
             if(u){
