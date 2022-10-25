@@ -17,6 +17,7 @@ router.post('/addWorker', actions.addNewWorker)
 //login
 router.post('/loginCustomer', actions.loginCustomer)
 router.post('/acceptCustomerJob', actions.acceptCustomerJob)
+router.post('/confirmJob', actions.confirmJob)
 router.post('/workerUpdateQuotation', actions.workerUpdateQuotation)
 router.post('/updateWorkerAdDesc', actions.updateWorkerAdDesc)
 router.post('/updateWorkerAdImg', actions.updateWorkerAdImg)
