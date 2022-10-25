@@ -48,6 +48,10 @@ const quoteSchema = mongoose.Schema({
         type: Date,
         required : false,
     },
+    confirmedDate :{
+        type: Date,
+        required : false,
+    },
     description :{
         type: String,
         required : false,

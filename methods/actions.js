@@ -145,8 +145,8 @@ var functions = {
           });
     },
     confirmJob: function(req,res){
-    
-        quotation.updateOne({ jobId: req.body.jobId }, { status: "confirmed" }, function(
+        var today = new Date();
+        quotation.updateOne({ jobId: req.body.jobId }, { status: "confirmed", confirmedDate : today }, function(
             err,
             result
           ) {
