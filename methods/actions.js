@@ -228,8 +228,8 @@ var functions = {
     },
     getQuotationState: function(req,res){
         quotation.findOne({
-            workerEmail: req.body.workerEmail,
-            customerEmail: req.body.customerEmail,
+            worker: req.body.workerEmail,
+            customer: req.body.customerEmail,
         }, function(err,quotation){
             if(err) throw err
             if(!quotation){
