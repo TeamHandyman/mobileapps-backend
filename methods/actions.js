@@ -360,6 +360,23 @@ var functions = {
         
         
     },
+    getConfirmedQuotations: async function(req,res){
+        
+        quotation.find({
+            customer: req.query['email'],
+            status: "confirmed"
+        }, function(err,u){
+            if(err) throw err
+            if(u){
+                res.json({success:true,u:u})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
     getCustomerNotificationsForJobAccept: async function(req,res){
         
         customerJob.find({
