@@ -10,6 +10,7 @@ const custJobImage = require('../models/custJobImage')
 const pushNotificationService = require('../services/push_notification_service')
 const { ONE_SIGNAL_CONFIG } = require('../config/notification.config')
 const quotation =  require('../models/quotation')
+const user = require('../models/user')
 var ObjectId = require('mongodb').ObjectId;
 // const cloudinary = require('cloudinary')
 
@@ -159,6 +160,17 @@ var functions = {
     },
     markJobAsComplete: function(req,res){
         
+        
+        User.updateOne({ email: req.body.workerEmail, userType:"worker" }, { $inc: {"jobCount": 1}}, function(
+            err,
+            result
+          ) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.json(result);
+            }
+          });
         quotation.updateOne({ jobId: req.body.jobId }, { status: "completed"}, function(
             err,
             result
