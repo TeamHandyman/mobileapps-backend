@@ -171,6 +171,20 @@ var functions = {
             }
           });
     },
+    increaseJobCount: function(req,res){
+        
+        
+        User.updateOne({ email: req.body.email, userType: "worker" }, { $inc: {jobCount:1}}, function(
+            err,
+            result
+          ) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.json(result);
+            }
+          });
+    },
     workerUpdateQuotation: function(req,res){
         var hourlyRate,estimatedTotal;
         if(req.body.revenueMethod == "Hourly rate"){
