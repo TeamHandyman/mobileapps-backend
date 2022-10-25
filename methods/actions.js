@@ -146,7 +146,20 @@ var functions = {
     },
     confirmJob: function(req,res){
         var today = new Date();
-        quotation.updateOne({ jobId: req.body.jobId }, { status: "confirmed", confirmedDate : today }, function(
+        quotation.updateOne({ jobId: req.body.jobId }, { status: "completed", confirmedDate : today }, function(
+            err,
+            result
+          ) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.json(result);
+            }
+          });
+    },
+    markJobAsComplete: function(req,res){
+        
+        quotation.updateOne({ jobId: req.body.jobId }, { status: "completed"}, function(
             err,
             result
           ) {
