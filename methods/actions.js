@@ -313,6 +313,22 @@ var functions = {
         
         
     },
+    getWorkerAds: async function(req,res){
+        
+        User.find({
+            userType: "worker"
+        }, function(err,u){
+            if(err) throw err
+            if(u){
+                res.json({success:true,u:u})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
     getCustomerNotificationsForJobAccept: async function(req,res){
         
         customerJob.find({
