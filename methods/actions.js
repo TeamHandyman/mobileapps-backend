@@ -360,6 +360,24 @@ var functions = {
         
         quotation.find({
             customer: req.query['email'],
+            status: "recieved"
+        }, function(err,u){
+            if(err) throw err
+            if(u){
+                res.json({success:true,u:u})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
+    getCompletedQuotations: async function(req,res){
+        
+        quotation.find({
+            customer: req.query['email'],
+            status: "completed"
         }, function(err,u){
             if(err) throw err
             if(u){
