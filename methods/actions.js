@@ -117,11 +117,11 @@ var functions = {
             var newWorkerPortfolio = workerPortfolio({
                 email: req.body.email
             });
-            req.body.url1 ? newCustJob.urls.push(req.body.url1) : null,
-            req.body.url2 ? newCustJob.urls.push(req.body.url2) : null,
-            req.body.url3 ? newCustJob.urls.push(req.body.url3) : null,
-            req.body.url4 ? newCustJob.urls.push(req.body.url4) : null,
-            req.body.url5 ? newCustJob.urls.push(req.body.url5) : null,
+            req.body.url1 ? newWorkerPortfolio.urls.push(req.body.url1) : null,
+            req.body.url2 ? newWorkerPortfolio.urls.push(req.body.url2) : null,
+            req.body.url3 ? newWorkerPortfolio.urls.push(req.body.url3) : null,
+            req.body.url4 ? newWorkerPortfolio.urls.push(req.body.url4) : null,
+            req.body.url5 ? newWorkerPortfolio.urls.push(req.body.url5) : null,
             
             newWorkerPortfolio.save(function(err, newWorkerPortfolio){
                 if(err){
