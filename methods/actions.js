@@ -108,6 +108,27 @@ var functions = {
             })
         }
     },
+    workerPortfolio: function (req,res){
+        const urls = [];
+        req.body.url1 ? urls.push(req.body.url1):null;
+        req.body.url2 ? urls.push(req.body.url2):null;
+        req.body.url3 ? urls.push(req.body.url3):null;
+        req.body.url4 ? urls.push(req.body.url4):null;
+        req.body.url5 ? urls.push(req.body.url5):null;
+        User.updateOne({ _id: req.body.id }, { 
+            portfolioUrls : urls
+        }, function(
+            err,
+            result
+          ) {
+            if (err) {
+              res.send(err);
+            } else {
+              res.json(result);
+            }
+          });
+        
+    },
     createQuotation: function (req,res){
         if((!req.body.workerEmail) || (!req.body.customerEmail)){
             res.json({success: false, msg: 'Please fill all the required fields'})

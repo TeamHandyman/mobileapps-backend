@@ -13,6 +13,7 @@ const router = express.Router()
 // adding a new user
 router.post('/addCustomer', actions.addNewCustomer)
 router.post('/postJobCustomer', actions.postJobCustomer)
+router.post('/workerPortfolio', actions.workerPortfolio)
 router.post('/addWorker', actions.addNewWorker)
 //login
 router.post('/loginCustomer', actions.loginCustomer)
