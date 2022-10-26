@@ -397,6 +397,22 @@ var functions = {
         
         
     },
+    getWorkerPortfolios: async function(req,res){
+        
+        workerPortfolio.find({
+            email: req.query['email']
+        }, function(err,u){
+            if(err) throw err
+            if(u){
+                res.json({success:true,u:u})
+            }
+            else{
+                res.json({success:false})
+            }
+        })
+        
+        
+    },
     getRecievedQuotations: async function(req,res){
         
         quotation.find({
