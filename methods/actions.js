@@ -75,7 +75,7 @@ var functions = {
         }
     },
     postJobCustomer: function (req,res){
-        if((!req.body.title) || (!req.body.workerType) || (!req.body.description) || (!req.body.date)){
+        if((!req.body.title) ){
             res.json({success: false, msg: 'Please fill all the required fields'})
         }
         else{
