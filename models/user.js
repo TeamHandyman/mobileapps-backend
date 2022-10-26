@@ -77,7 +77,6 @@ var userCustomerSchema = new Schema({
         type: String,
         required: false
     },
-    portfoilioUrls : [String],
 })
 
 userCustomerSchema.pre('save',function(next) {

@@ -10,6 +10,7 @@ const custJobImage = require('../models/custJobImage')
 const pushNotificationService = require('../services/push_notification_service')
 const { ONE_SIGNAL_CONFIG } = require('../config/notification.config')
 const quotation =  require('../models/quotation')
+const workerPortfolio =  require('../models/workerPortfolio')
 var ObjectId = require('mongodb').ObjectId;
 // const cloudinary = require('cloudinary')
 
@@ -109,24 +110,28 @@ var functions = {
         }
     },
     workerPortfolio: function (req,res){
-        const urls = [];
-        req.body.url1 ? urls.push(req.body.url1):null;
-        req.body.url2 ? urls.push(req.body.url2):null;
-        req.body.url3 ? urls.push(req.body.url3):null;
-        req.body.url4 ? urls.push(req.body.url4):null;
-        req.body.url5 ? urls.push(req.body.url5):null;
-        User.updateOne({ email: req.body.email,userType:"worker" }, { 
-            portfolioUrls : urls
-        }, function(
-            err,
-            result
-          ) {
-            if (err) {
-              res.send(err);
-            } else {
-              res.json(result);
-            }
-          });
+        if((!req.body.email)){
+            res.json({success: false, msg: 'Please fill all the required fields'})
+        }
+        else{
+            var newWorkerPortfolio = workerPortfolio({
+                
+            });
+            req.body.url1 ? newCustJob.urls.push(req.body.url1) : null,
+            req.body.url2 ? newCustJob.urls.push(req.body.url2) : null,
+            req.body.url3 ? newCustJob.urls.push(req.body.url3) : null,
+            req.body.url4 ? newCustJob.urls.push(req.body.url4) : null,
+            req.body.url5 ? newCustJob.urls.push(req.body.url5) : null,
+            
+            newWorkerPortfolio.save(function(err, newWorkerPortfolio){
+                if(err){
+                    res.json({success:false , msg:'Failed to save'})
+                }
+                else{
+                    res. json({success: true, msg: 'Successfully Registered'})
+                }
+            })
+        }
         
     },
     createQuotation: function (req,res){
