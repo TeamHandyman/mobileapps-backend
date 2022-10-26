@@ -76,7 +76,8 @@ var userCustomerSchema = new Schema({
     oneSignalID : {
         type: String,
         required: false
-    }
+    },
+    portfoilioUrls : [String],
 })
 
 userCustomerSchema.pre('save',function(next) {
