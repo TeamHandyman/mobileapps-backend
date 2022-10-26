@@ -115,7 +115,7 @@ var functions = {
         }
         else{
             var newWorkerPortfolio = workerPortfolio({
-                
+                email: req.body.email
             });
             req.body.url1 ? newCustJob.urls.push(req.body.url1) : null,
             req.body.url2 ? newCustJob.urls.push(req.body.url2) : null,
