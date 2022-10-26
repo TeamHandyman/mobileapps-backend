@@ -115,7 +115,7 @@ var functions = {
         req.body.url3 ? urls.push(req.body.url3):null;
         req.body.url4 ? urls.push(req.body.url4):null;
         req.body.url5 ? urls.push(req.body.url5):null;
-        User.updateOne({ _id: req.body.id }, { 
+        User.updateOne({ email: req.body.email,userType:"worker" }, { 
             portfolioUrls : urls
         }, function(
             err,
